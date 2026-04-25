@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudTrackerTransactionST10382483">
         <activity
+            android:name=".ui.theme.CreateTransactionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BudTrackerTransactionST10382483" />
+        <activity
             android:name=".GraphsActivity"
             android:exported="false" />
         <activity

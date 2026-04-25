@@ -1,144 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <!-- CONTENT -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#F5F5F5">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-        <!-- 🔵 HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="#1976D2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F5F5F5">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="#1976D2"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    app:tint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- TITLE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spending Overview"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_margin="16dp"
+                android:textColor="#000000"/>
+
+            <!-- PIE CHART -->
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- TRANSPORT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Transport"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/txtTransport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R500"/>
+            </LinearLayout>
+
+            <!-- TAKEOUT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Takeout"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/txtTakeout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R300"/>
+            </LinearLayout>
+
+            <!-- GROCERIES -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Groceries"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/txtGroceries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R700"/>
+            </LinearLayout>
+
+            <!-- PERSONAL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Personal Shopping"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/txtPersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R200"/>
+            </LinearLayout>
+
+            <!-- BUTTON -->
+            <Button
+                android:id="@+id/btnAddMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add More"
+                android:layout_margin="16dp"
+                android:backgroundTint="#1976D2"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM NAV -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@android:drawable/ic_menu_gallery"
-                app:tint="#FFFFFF" />
-        </LinearLayout>
-
-        <!-- TITLE -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Spending Overview"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_margin="16dp"/>
-
-        <!-- 📊 REAL PIE CHART -->
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pieChart"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"/>
-
-        <!-- 📋 CATEGORY LIST -->
-
-        <!-- Transport -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_view"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Transport"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/txtTransport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R500"/>
+                android:text="Home"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- Takeout -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_agenda"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Takeout"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/txtTakeout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R300"/>
+                android:text="Card"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- Groceries -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_myplaces"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Groceries"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/txtGroceries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R700"/>
+                android:text="Profile"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- Personal -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_dialog_info"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Personal Shopping"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/txtPersonal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R200"/>
+                android:text="Alerts"
+                android:textSize="12sp"/>
         </LinearLayout>
-
-        <!-- ➕ BUTTON -->
-        <Button
-            android:id="@+id/btnAddMore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add More"
-            android:layout_margin="16dp"
-            android:backgroundTint="#1976D2"
-            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

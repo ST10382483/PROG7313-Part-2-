@@ -10,16 +10,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Link to your XML layout
         setContentView(R.layout.activity_main)
 
-        // ONLY button that exists in your XML
         val btnViewGraphs = findViewById<Button>(R.id.btnViewGraphs)
 
-        // Open Graphs screen
         btnViewGraphs.setOnClickListener {
-            val intent = Intent(this, GraphsActivity::class.java)
-            startActivity(intent)
+            // add here
+            startActivity(Intent(this, GraphsActivity::class.java)) // add here
         }
     }
 }

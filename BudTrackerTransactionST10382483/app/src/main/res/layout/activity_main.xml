@@ -1,109 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <!-- CONTENT AREA -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#F5F5F5">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-        <!-- 🔵 TOP HEADER (1/4 SCREEN) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="#1976D2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <!-- Image in center -->
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@android:drawable/ic_menu_info_details"
-                app:tint="#FFFFFF" />
-
-        </LinearLayout>
-
-        <!-- TITLE SECTION -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:background="#F5F5F5">
 
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="#1976D2"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    app:tint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- TITLE -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Transactions"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="#000000" />
+                android:layout_margin="16dp"
+                android:textColor="#000000"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- TRANSACTION ROWS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Today"
-                android:textSize="16sp"
-                android:textColor="#666666"
-                android:layout_marginTop="4dp"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-        <!-- TODAY -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Transport"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R500"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Groceries"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R700"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Takeout"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R300"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Personal Shopping"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R200"/>
+            </LinearLayout>
+
+            <!-- BUTTON -->
+            <Button
+                android:id="@+id/btnViewGraphs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Transaction Graphs"
+                android:layout_margin="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM NAV -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:weightSum="4">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="12dp"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_view"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
+                android:text="Home"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- YESTERDAY -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="12dp"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_agenda"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yesterday"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
+                android:text="Card"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <!-- 2 DAYS AGO -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_myplaces"/>
 
-        <!-- 3 DAYS AGO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <!-- BUTTON -->
-        <Button
-            android:id="@+id/btnViewGraphs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Transaction Graphs"
-            android:layout_margin="16dp"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_dialog_info"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alerts"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

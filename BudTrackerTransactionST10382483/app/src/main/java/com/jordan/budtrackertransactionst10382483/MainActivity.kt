@@ -1,5 +1,6 @@
 package com.jordan.budtrackertransactionst10382483
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -9,19 +10,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Connect to XML layout
+        // Link to your XML layout
         setContentView(R.layout.activity_main)
 
-        // Buttons (we will use later)
-        val btnAddTransaction = findViewById<Button>(R.id.btnAddTransaction)
-        val btnViewTransactions = findViewById<Button>(R.id.btnViewTransactions)
+        // ONLY button that exists in your XML
+        val btnViewGraphs = findViewById<Button>(R.id.btnViewGraphs)
 
-        btnAddTransaction.setOnClickListener {
-            // TODO: Add Transaction Page
-        }
-
-        btnViewTransactions.setOnClickListener {
-            // TODO: View Transactions Page
+        // Open Graphs screen
+        btnViewGraphs.setOnClickListener {
+            val intent = Intent(this, GraphsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

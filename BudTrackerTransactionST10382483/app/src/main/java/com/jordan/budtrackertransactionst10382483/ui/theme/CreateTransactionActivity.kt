@@ -91,6 +91,27 @@ class CreateTransactionActivity : AppCompatActivity() {
                 ).show()
 
                 // add here
+                
+
+                val newTransaction = Transaction(
+                    category = selectedCategory,
+                    title = title,
+                    amount = amount.toDouble()
+                )
+
+// Save it
+                TransactionData.transactionList.add(newTransaction)
+
+// Clear inputs (optional but nice UX)
+                edtTitle.text.clear()
+                edtAmount.text.clear()
+                selectedCategory = ""
+
+                Toast.makeText(
+                    this,
+                    "Saved successfully!",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

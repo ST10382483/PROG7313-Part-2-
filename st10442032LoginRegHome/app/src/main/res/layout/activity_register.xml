@@ -76,7 +76,7 @@
                 android:textColor="#000000" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Nationality dropdown -->
+        <!-- Nationality dropdown   - only southern afican countries -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

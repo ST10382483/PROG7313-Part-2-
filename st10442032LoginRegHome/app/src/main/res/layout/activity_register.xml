@@ -67,12 +67,13 @@
             app:hintTextColor="#4CAF50"
             app:boxBackgroundColor="#FFFFFF"
             android:layout_marginBottom="16dp">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:textColor="#000000" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Nationality dropdown -->

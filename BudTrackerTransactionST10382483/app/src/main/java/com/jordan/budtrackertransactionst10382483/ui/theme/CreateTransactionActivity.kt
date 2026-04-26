@@ -9,17 +9,20 @@ import androidx.appcompat.app.AppCompatActivity
 
 class CreateTransactionActivity : AppCompatActivity() {
 
+    // Stores which category the user selects
     private var selectedCategory: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Connects Kotlin file to XML layout
         setContentView(R.layout.activity_create_transaction)
 
-        // Inputs
+        // Input fields for transaction details
         val edtTitle = findViewById<EditText>(R.id.edtTitle)
         val edtAmount = findViewById<EditText>(R.id.edtAmount)
 
-        // Buttons (categories)
+        // Category buttons
         val btnTransport = findViewById<Button>(R.id.btnTransport)
         val btnGroceries = findViewById<Button>(R.id.btnGroceries)
         val btnTakeout = findViewById<Button>(R.id.btnTakeout)
@@ -27,12 +30,13 @@ class CreateTransactionActivity : AppCompatActivity() {
         val btnBills = findViewById<Button>(R.id.btnBills)
         val btnOther = findViewById<Button>(R.id.btnOther)
 
-        // Main button
+        // Main save button
         val btnAddTransaction = findViewById<Button>(R.id.btnAddTransaction)
 
-        // CATEGORY CLICK HANDLER
+        // Resets all category button colours (used when selecting a new category)
         fun resetButtons() {
             val defaultColor = Color.LTGRAY
+
             btnTransport.setBackgroundColor(defaultColor)
             btnGroceries.setBackgroundColor(defaultColor)
             btnTakeout.setBackgroundColor(defaultColor)
@@ -41,68 +45,50 @@ class CreateTransactionActivity : AppCompatActivity() {
             btnOther.setBackgroundColor(defaultColor)
         }
 
+        // Handles category selection and highlights the chosen button
         fun selectCategory(button: Button, category: String) {
             resetButtons()
             button.setBackgroundColor(Color.parseColor("#1976D2"))
             selectedCategory = category
         }
 
-        btnTransport.setOnClickListener {
-            selectCategory(btnTransport, "Transport")
-        }
+        // Category button click listeners
+        btnTransport.setOnClickListener { selectCategory(btnTransport, "Transport") }
+        btnGroceries.setOnClickListener { selectCategory(btnGroceries, "Groceries") }
+        btnTakeout.setOnClickListener { selectCategory(btnTakeout, "Takeout") }
+        btnPersonal.setOnClickListener { selectCategory(btnPersonal, "Personal") }
+        btnBills.setOnClickListener { selectCategory(btnBills, "Bills") }
+        btnOther.setOnClickListener { selectCategory(btnOther, "Other") }
 
-        btnGroceries.setOnClickListener {
-            selectCategory(btnGroceries, "Groceries")
-        }
-
-        btnTakeout.setOnClickListener {
-            selectCategory(btnTakeout, "Takeout")
-        }
-
-        btnPersonal.setOnClickListener {
-            selectCategory(btnPersonal, "Personal")
-        }
-
-        btnBills.setOnClickListener {
-            selectCategory(btnBills, "Bills")
-        }
-
-        btnOther.setOnClickListener {
-            selectCategory(btnOther, "Other")
-        }
-
-        // ADD TRANSACTION BUTTON
+        // Save transaction button logic
         btnAddTransaction.setOnClickListener {
 
+            // Read user input
             val title = edtTitle.text.toString()
             val amount = edtAmount.text.toString()
 
+            // Validate input fields
             if (title.isEmpty() || amount.isEmpty() || selectedCategory.isEmpty()) {
+
                 Toast.makeText(
                     this,
                     "Please fill all fields and select a category",
                     Toast.LENGTH_SHORT
                 ).show()
+
             } else {
-                Toast.makeText(
-                    this,
-                    "Transaction Added: $selectedCategory - $title - R$amount",
-                    Toast.LENGTH_SHORT
-                ).show()
 
-                // add here
-                
-
+                // Create new Transaction object
                 val newTransaction = Transaction(
                     category = selectedCategory,
                     title = title,
                     amount = amount.toDouble()
                 )
 
-// Save it
+                // Save transaction into shared list
                 TransactionData.transactionList.add(newTransaction)
 
-// Clear inputs (optional but nice UX)
+                // Clear input fields after saving
                 edtTitle.text.clear()
                 edtAmount.text.clear()
                 selectedCategory = ""

@@ -15,7 +15,7 @@
         android:src="@mipmap/logo"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Register button -->
+    <!-- Register button - register page -->
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
         android:stateListAnimator="@null"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Login button -->
+    <!-- Login button  - login page - home -->
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"

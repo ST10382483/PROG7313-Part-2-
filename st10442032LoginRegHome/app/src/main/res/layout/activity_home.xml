@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="#0D1B2A">
 
-    <!-- Top bar -->
+    <!-- Top bar  - settings page and the logo -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,9 +34,7 @@
             android:src="@mipmap/settings" />
     </LinearLayout>
 
-    <!-- Main content scrollable -->
-
-    <!-- Bottom navigation bar -->
+    <!-- Main content  -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,9 +58,9 @@
                 android:textSize="50sp"
                 android:textStyle="bold" />
 
-            <!-- Username -->
+            <!-- Username  greets the user by their email or username -->
 
-            <!-- Account card -->
+            <!-- Account card  - foor the user ro be able to view their balance - Jordan will have this connected -->
             <TextView
                 android:id="@+id/homeUsername"
                 android:layout_width="wrap_content"
@@ -122,7 +120,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Expenses button -->
+            <!-- Expenses button  - which Boheshan will connect his program to -->
             <Button
                 android:id="@+id/expensesButton"
                 android:layout_width="160dp"

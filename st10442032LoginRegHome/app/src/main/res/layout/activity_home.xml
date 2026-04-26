@@ -1,186 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1B2A"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#0D1B2A">
 
+    <!-- Top bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="32dp">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/logo"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Create Account"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#4CAF50"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginStart="8dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fill in your details below"
-            android:textColor="#AAAAAA"
-            android:textSize="16sp"
-            android:layout_marginBottom="32dp"/>
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="62dp"
+            android:src="@mipmap/settings" />
+    </LinearLayout>
 
-        <!-- Profile image -->
+    <!-- Main content scrollable -->
 
-        <!-- Username -->
+    <!-- Bottom navigation bar -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:layout_weight="50">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-            <ImageView
-                android:id="@+id/profileImageView"
-                android:layout_width="81dp"
-                android:layout_height="72dp"
-                android:layout_marginBottom="5dp"
-                android:background="@mipmap/profile"
-                android:scaleType="centerCrop"
-                android:src="@android:drawable/ic_menu_gallery" />
-
-            <Button
-                android:id="@+id/selectImageButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="58dp"
-                android:text="Choose Profile Photo"
-                android:textColor="#4CAF50" />
-        </LinearLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            app:boxBackgroundColor="#FFFFFF"
-            android:layout_marginBottom="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Nationality dropdown -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nationality"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            app:boxBackgroundColor="#FFFFFF"
-            android:layout_marginBottom="16dp">
-            <AutoCompleteTextView
-                android:id="@+id/nationalityDropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:focusable="false"
-                android:inputType="none"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Email -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email address"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            app:boxBackgroundColor="#FFFFFF"
-            android:layout_marginBottom="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Cell number -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cell number"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            app:boxBackgroundColor="#FFFFFF"
-            android:layout_marginBottom="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:inputType="phone"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            app:boxBackgroundColor="#FFFFFF"
-            app:passwordToggleEnabled="true"
-            android:layout_marginBottom="2dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:inputType="textPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Register button -->
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Create Account"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#4CAF50"
-            android:stateListAnimator="@null"
-            android:layout_marginBottom="10dp"/>
-
-        <!-- Back to  -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_gravity="center">
+            <!-- Welcome text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account? "
-                android:textColor="#AAAAAA"/>
-            <TextView
-                android:id="@+id/goToLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
+                android:layout_marginBottom="4dp"
+                android:text="WELCOME"
                 android:textColor="#4CAF50"
-                android:textStyle="bold"/>
+                android:textSize="50sp"
+                android:textStyle="bold" />
+
+            <!-- Username -->
+
+            <!-- Account card -->
+            <TextView
+                android:id="@+id/homeUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="USERNAME"
+                android:textColor="#F5C518"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account :"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Transactions Balance:"
+                    android:textColor="#888888"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R 0.00"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Current Balance:"
+                    android:textColor="#888888"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R 0.00"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Expenses button -->
+            <Button
+                android:id="@+id/expensesButton"
+                android:layout_width="160dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#FFFFFF"
+                android:stateListAnimator="@null"
+                android:text="Expenses"
+                android:textColor="#4CAF50" />
+
         </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#0D1B2A"
+        android:gravity="center">
+
+        <!-- Home -->
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="166dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/home" />
+
+        <!-- Transactions -->
+
+        <!-- Account -->
+        <ImageButton
+            android:id="@+id/navTransactions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/transaction" />
+
+        <ImageButton
+            android:id="@+id/navAccount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/account"
+            android:background="#0D1B2A"
+            />
+
+        <!-- Notifications -->
+        <ImageButton
+            android:id="@+id/navNotifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/notification"
+            android:background="#0D1B2A"
+            />
 
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>

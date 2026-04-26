@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
         val registerBtn = findViewById<Button>(R.id.registerBtn)
         val loginBtn = findViewById<Button>(R.id.loginBtn)
 
-        // Register button → Register screen
+        // Register button oes toRegister screen
         registerBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Login button → Login screen
+        // Login button goes to  Login screen
         loginBtn.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }

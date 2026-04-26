@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Root layout for the entire screen -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- CONTENT AREA -->
+    <!-- ScrollView allows content to scroll if it doesn't fit on screen -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true">
 
+        <!-- Main container for all content -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#F5F5F5">
 
-            <!-- HEADER -->
+            <!-- Top header section with blue background -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
@@ -26,6 +29,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <!-- Image displayed in the center of the header -->
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -33,7 +37,7 @@
                     app:tint="#FFFFFF" />
             </LinearLayout>
 
-            <!-- TITLE -->
+            <!-- Page title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,14 +47,14 @@
                 android:layout_margin="16dp"
                 android:textColor="#000000"/>
 
-            <!-- TRANSACTION ROWS -->
-
+            <!-- Row displaying Transport spending -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="16dp">
 
+                <!-- Category name -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -58,12 +62,14 @@
                     android:text="Transport"
                     android:textSize="16sp"/>
 
+                <!-- Amount -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R500"/>
             </LinearLayout>
 
+            <!-- Row displaying Groceries spending -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,6 +89,7 @@
                     android:text="R700"/>
             </LinearLayout>
 
+            <!-- Row displaying Takeout spending -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,6 +109,7 @@
                     android:text="R300"/>
             </LinearLayout>
 
+            <!-- Row displaying Personal Shopping spending -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,7 +129,7 @@
                     android:text="R200"/>
             </LinearLayout>
 
-            <!-- BUTTON -->
+            <!-- Button to open the graph screen -->
             <Button
                 android:id="@+id/btnViewGraphs"
                 android:layout_width="match_parent"
@@ -132,7 +140,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- BOTTOM NAV -->
+    <!-- Bottom navigation menu -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -141,6 +149,7 @@
         android:elevation="8dp"
         android:weightSum="4">
 
+        <!-- Home button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -160,6 +169,7 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
+        <!-- Card button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -179,6 +189,7 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
+        <!-- Profile button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -198,6 +209,7 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
+        <!-- Alerts button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"

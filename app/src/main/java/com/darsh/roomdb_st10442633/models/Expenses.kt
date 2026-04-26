@@ -1,4 +1,4 @@
-package com.darsh.roomdb_st10442633.model
+package com.darsh.roomdb_st10442633.models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

@@ -145,31 +145,35 @@
         <!-- Home -->
         <ImageButton
             android:id="@+id/navHome"
-            android:layout_width="166dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#0D1B2A"
-            android:src="@mipmap/home" />
+            android:src="@mipmap/home"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
 
         <!-- Transactions -->
-
-        <!-- Account -->
         <ImageButton
             android:id="@+id/navTransactions"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#0D1B2A"
-            android:src="@mipmap/transaction" />
+            android:src="@mipmap/transaction"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
 
+        <!-- Account -->
         <ImageButton
             android:id="@+id/navAccount"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/account"
             android:background="#0D1B2A"
-            />
+            android:src="@mipmap/account"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
 
         <!-- Notifications -->
         <ImageButton
@@ -177,9 +181,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/notification"
             android:background="#0D1B2A"
-            />
+            android:src="@mipmap/notification"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
 
     </LinearLayout>
 

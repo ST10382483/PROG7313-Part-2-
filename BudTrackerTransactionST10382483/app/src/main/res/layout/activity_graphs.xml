@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:background="#1976D2"
+                android:background="#0F3D3E"
                 android:gravity="center">
 
                 <!-- Image shown in the center of the header -->
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="Add More"
                 android:layout_margin="16dp"
-                android:backgroundTint="#1976D2"
+                android:backgroundTint="#0F3D3E"
                 android:textColor="#FFFFFF"/>
 
         </LinearLayout>

@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity : AppCompatActivity() {
 
-    // Stores the URI (location) of the image the user picks from their gallery
+    // Stores the URI of the image the user picks from their gallery
     private var selectedImageUri: Uri? = null
 
     // Sets up the image picker — waits for the user to select a photo from their gallery
@@ -102,4 +102,4 @@ class RegisterActivity : AppCompatActivity() {
         // When "Login" is tapped, go back to the previous screen
         goToLogin.setOnClickListener { finish() }
     }
-}  
+}

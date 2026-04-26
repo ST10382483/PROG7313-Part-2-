@@ -21,11 +21,11 @@
             android:orientation="vertical"
             android:background="#F5F5F5">
 
-            <!-- Top header section with blue background -->
+            <!-- Top header section with updated dark green-blue background -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:background="#1976D2"
+                android:background="#0B5F5B"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -54,7 +54,6 @@
                 android:orientation="horizontal"
                 android:padding="16dp">
 
-                <!-- Category name -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -62,7 +61,6 @@
                     android:text="Transport"
                     android:textSize="16sp"/>
 
-                <!-- Amount -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

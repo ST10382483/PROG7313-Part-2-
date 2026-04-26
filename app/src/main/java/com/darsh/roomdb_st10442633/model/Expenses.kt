@@ -1,4 +1,4 @@
-package com.darsh.roomdb_st10442633
+package com.darsh.roomdb_st10442633.model
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -20,7 +20,7 @@ import java.util.Locale.Category
             entity = Category::class,
             parentColumns = ["categoryId"],
             childColumns = ["categoryId"]
-            
+
         )
     ],
     indices = [Index("userId"), Index("categoryId"), Index("date")]

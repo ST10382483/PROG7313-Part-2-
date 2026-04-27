@@ -182,3 +182,62 @@ class ViewExpensesActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 1f
             )
+
+            val receipt = TextView(this)
+            receipt.text = "View receipt  ›"
+            receipt.textSize = 12f
+            receipt.setTypeface(null, android.graphics.Typeface.BOLD)
+            receipt.setTextColor(Color.parseColor("#247A3D"))
+
+            bottomRow.addView(date)
+            bottomRow.addView(receipt)
+
+            card.addView(topRow)
+            card.addView(description)
+            card.addView(bottomRow)
+
+            card.setOnClickListener {
+                val intent = Intent(this, ExpenseDetailsActivity::class.java)
+                intent.putExtra("expense", expense)
+                startActivity(intent)
+            }
+
+            receipt.setOnClickListener {
+                val intent = Intent(this, ReceiptActivity::class.java)
+                intent.putExtra("imageUri", expense.imageUri)
+                startActivity(intent)
+            }
+
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.setMargins(0, 0, 0, 12)
+
+            expenseContainer.addView(card, params)
+        }
+    }
+
+    private fun loadExpenses() {
+        expenses.clear()
+
+        val prefs = getSharedPreferences("ExpenseData", MODE_PRIVATE)
+        val json = prefs.getString("expenses", "[]")
+        val array = JSONArray(json)
+
+        for (i in 0 until array.length()) {
+            val obj = array.getJSONObject(i)
+
+            expenses.add(
+                Expense(
+                    obj.getString("date"),
+                    obj.getString("category"),
+                    obj.getString("description"),
+                    obj.getDouble("amount"),
+                    obj.getString("addedOn"),
+                    obj.optString("imageUri", null)
+                )
+            )
+        }
+    }
+}

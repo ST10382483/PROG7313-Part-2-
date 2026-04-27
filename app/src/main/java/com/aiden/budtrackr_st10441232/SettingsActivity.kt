@@ -11,25 +11,35 @@ class SettingsActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val goals = findViewById<TextView>(R.id.btnGoals)
-        val deleteAccount = findViewById<TextView>(R.id.btnDelete)
-        val resetPassword = findViewById<TextView>(R.id.btnReset)
         val privacy = findViewById<TextView>(R.id.btnPrivacy)
+        val goals = findViewById<TextView>(R.id.btnGoals)
+        val resetPassword = findViewById<TextView>(R.id.btnReset)
+        val deleteAccount = findViewById<TextView>(R.id.btnDelete)
+        val help = findViewById<TextView>(R.id.btnHelp)
 
+        // Privacy Page
+        privacy.setOnClickListener {
+            startActivity(Intent(this, PrivacyActivity::class.java))
+        }
+
+        // Goals Page
         goals.setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
         }
 
-        deleteAccount.setOnClickListener {
-            startActivity(Intent(this, DeleteAccountActivity::class.java))
-        }
-
+        // Reset Password Page
         resetPassword.setOnClickListener {
             startActivity(Intent(this, ResetPasswordActivity::class.java))
         }
 
-        privacy.setOnClickListener {
-            startActivity(Intent(this, PrivacyActivity::class.java))
+        // Delete Account Page
+        deleteAccount.setOnClickListener {
+            startActivity(Intent(this, DeleteAccountActivity::class.java))
+        }
+
+        // Help Page
+        help.setOnClickListener {
+            startActivity(Intent(this, HelpActivity::class.java))
         }
     }
 }

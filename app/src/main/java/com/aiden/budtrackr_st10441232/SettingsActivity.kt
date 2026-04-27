@@ -14,6 +14,7 @@ class SettingsActivity : Activity() {
         val goals = findViewById<TextView>(R.id.btnGoals)
         val deleteAccount = findViewById<TextView>(R.id.btnDelete)
         val resetPassword = findViewById<TextView>(R.id.btnReset)
+        val privacy = findViewById<TextView>(R.id.btnPrivacy)
 
         goals.setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
@@ -25,6 +26,10 @@ class SettingsActivity : Activity() {
 
         resetPassword.setOnClickListener {
             startActivity(Intent(this, ResetPasswordActivity::class.java))
+        }
+
+        privacy.setOnClickListener {
+            startActivity(Intent(this, PrivacyActivity::class.java))
         }
     }
 }

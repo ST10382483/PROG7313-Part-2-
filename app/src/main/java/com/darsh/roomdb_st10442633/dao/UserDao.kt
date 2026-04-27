@@ -5,7 +5,7 @@ import com.darsh.roomdb_st10442633.models.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface `UserDao.kt` {
+interface UserDao {
 
     @Insert
     suspend fun insertUser(user: User): Long

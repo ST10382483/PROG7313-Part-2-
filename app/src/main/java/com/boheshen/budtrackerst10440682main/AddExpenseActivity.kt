@@ -37,3 +37,40 @@ class AddExpenseActivity : AppCompatActivity() {
         btnSelectImage = findViewById(R.id.btnSelectImage)
         btnSaveExpense = findViewById(R.id.btnSaveExpense)
         imgPreview = findViewById(R.id.imgPreview)
+
+        edtDate.setOnClickListener {
+            showDatePicker()
+        }
+
+        btnSelectImage.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.type = "image/*"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(intent, imagePickerCode)
+        }
+
+        btnSaveExpense.setOnClickListener {
+            saveExpense()
+        }
+    }
+
+    private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+
+        DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                val selectedDate = String.format(
+                    Locale.getDefault(),
+                    "%02d/%02d/%04d",
+                    day,
+                    month + 1,
+                    year
+                )
+                edtDate.setText(selectedDate)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
+    }

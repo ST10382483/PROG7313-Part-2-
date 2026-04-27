@@ -113,3 +113,32 @@ class ViewExpensesActivity : AppCompatActivity() {
         showExpenses(filtered)
         txtPeriod.text = "Period\n$start - $end"
     }
+
+    private fun showExpenses(list: List<Expense>) {
+        expenseContainer.removeAllViews()
+
+        txtTotalExpenses.text = "Total Expenses\nR %.2f".format(list.sumOf { it.amount })
+        txtTransactions.text = "Transactions\n${list.size}"
+
+        if (list.isEmpty()) {
+            val emptyText = TextView(this)
+            emptyText.text = "No expenses added yet."
+            emptyText.textSize = 15f
+            emptyText.gravity = Gravity.CENTER
+            emptyText.setTextColor(Color.parseColor("#607D6B"))
+            emptyText.setPadding(10, 30, 10, 30)
+
+            expenseContainer.addView(emptyText)
+            return
+        }
+
+        for (expense in list) {
+
+            val card = LinearLayout(this)
+            card.orientation = LinearLayout.VERTICAL
+            card.setPadding(16, 14, 16, 14)
+            card.setBackgroundColor(Color.parseColor("#F7FBF8"))
+
+            val topRow = LinearLayout(this)
+            topRow.orientation = LinearLayout.HORIZONTAL
+            topRow.gravity = Gravity.CENTER_VERTICAL

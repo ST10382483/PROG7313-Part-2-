@@ -194,3 +194,32 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:text="Expense List"
+                    android:textColor="#10233D"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Tap item for details"
+                    android:textColor="#247A3D"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:text="Your added expenses will appear below"
+                android:textColor="#607D6B"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="#EAF5EE"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />

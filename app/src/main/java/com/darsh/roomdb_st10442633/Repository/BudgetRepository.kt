@@ -50,4 +50,36 @@ class BudgetRepository(private val context: Context) {
     suspend fun deleteUser(userId: Long) = userDao.deleteUserById(userId)
 
     fun getAllUsers(): Flow<List<User>> = userDao.getAllUsers()
+    
+
+    //CATEGORY OPERATIONS
+
+    suspend fun addCategory(
+        userId: Long,
+        name: String,
+        description: String? = null,
+        icon: String? = null,
+        color: String? = null,
+        isDefault: Boolean = false
+    ): Long {
+        val category = Category(
+            userId = userId,
+            name = name,
+            description = description,
+            icon = icon,
+            color = color,
+            isDefault = isDefault
+        )
+        return categoryDao.insertCategory(category)
+    }
+
+    suspend fun updateCategory(category: Category) = categoryDao.updateCategory(category)
+
+    suspend fun deleteCategory(category: Category) = categoryDao.deleteCategory(category)
+
+    suspend fun getCategoryById(categoryId: Long): Category? = categoryDao.getCategoryById(categoryId)
+
+    fun getCategoriesByUser(userId: Long): Flow<List<Category>> = categoryDao.getCategoriesByUser(userId)
+
+    fun searchCategories(userId: Long, search: String): Flow<List<Category>> = categoryDao.searchCategories(userId, search)
 }

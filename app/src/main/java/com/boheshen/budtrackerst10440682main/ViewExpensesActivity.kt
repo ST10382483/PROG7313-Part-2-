@@ -61,3 +61,55 @@ class ViewExpensesActivity : AppCompatActivity() {
         showExpenses(expenses)
         txtPeriod.text = "Period\nAll"
     }
+
+    override fun onResume() {
+        super.onResume()
+        loadExpenses()
+        showExpenses(expenses)
+    }
+
+    private fun showDatePicker(editText: EditText) {
+        val calendar = Calendar.getInstance()
+
+        DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                val selectedDate = String.format("%02d/%02d/%04d", day, month + 1, year)
+                editText.setText(selectedDate)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
+    }
+
+    private fun filterExpenses() {
+        val start = edtStartDate.text.toString().trim()
+        val end = edtEndDate.text.toString().trim()
+
+        if (start.isEmpty() || end.isEmpty()) {
+            Toast.makeText(this, "Select both dates", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val startDate = dateFormat.parse(start)
+        val endDate = dateFormat.parse(end)
+
+        if (startDate == null || endDate == null) {
+            Toast.makeText(this, "Invalid date selected", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (startDate.after(endDate)) {
+            Toast.makeText(this, "Start date cannot be after end date", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val filtered = expenses.filter {
+            val d = dateFormat.parse(it.date)
+            d != null && !d.before(startDate) && !d.after(endDate)
+        }
+
+        showExpenses(filtered)
+        txtPeriod.text = "Period\n$start - $end"
+    }

@@ -50,7 +50,7 @@ class BudgetRepository(private val context: Context) {
     suspend fun deleteUser(userId: Long) = userDao.deleteUserById(userId)
 
     fun getAllUsers(): Flow<List<User>> = userDao.getAllUsers()
-    
+
 
     //CATEGORY OPERATIONS
 
@@ -77,9 +77,87 @@ class BudgetRepository(private val context: Context) {
 
     suspend fun deleteCategory(category: Category) = categoryDao.deleteCategory(category)
 
-    suspend fun getCategoryById(categoryId: Long): Category? = categoryDao.getCategoryById(categoryId)
+    suspend fun getCategoryById(categoryId: Long): Category? =
+        categoryDao.getCategoryById(categoryId)
 
-    fun getCategoriesByUser(userId: Long): Flow<List<Category>> = categoryDao.getCategoriesByUser(userId)
+    fun getCategoriesByUser(userId: Long): Flow<List<Category>> =
+        categoryDao.getCategoriesByUser(userId)
 
-    fun searchCategories(userId: Long, search: String): Flow<List<Category>> = categoryDao.searchCategories(userId, search)
+    fun searchCategories(userId: Long, search: String): Flow<List<Category>> =
+        categoryDao.searchCategories(userId, search)
+
+    //EXPENSE OPERATIONS
+
+    suspend fun addExpense(
+        userId: Long,
+        categoryId: Long,
+        date: Date,
+        startTime: Date,
+        endTime: Date,
+        description: String,
+        amount: Double,
+        photoUri: String? = null,
+        photoPath: String? = null,
+        notes: String? = null,
+        location: String? = null
+    ): Long {
+        val expense = Expenses(
+            userId = userId,
+            categoryId = categoryId,
+            date = date,
+            startTime = startTime,
+            endTime = endTime,
+            description = description,
+            amount = amount,
+            photoUri = photoUri,
+            photoPath = photoPath,
+            notes = notes,
+            location = location
+        )
+        return expenseDao.insertExpense(expense)
+    }
+
+    suspend fun updateExpense(expense: Expenses) = expenseDao.updateExpense(expense)
+
+    suspend fun deleteExpense(expense: Expenses) = expenseDao.deleteExpense(expense)
+
+    suspend fun getExpenseById(expenseId: Long):Expenses? = expenseDao.getExpenseById(expenseId)
+
+    fun getAllExpenses(userId: Long): Flow<List<Expenses>> = expenseDao.getAllExpenses(userId)
+
+    fun getExpensesByDateRange(
+        userId: Long,
+        startDate: Date,
+        endDate: Date
+    ): Flow<List<Expenses>> {
+        return expenseDao.getExpensesByDateRange(userId, startDate, endDate)
+    }
+
+    fun getExpensesByCategoryAndDateRange(
+        userId: Long,
+        categoryId: Long,
+        startDate: Date,
+        endDate: Date
+    ): Flow<List<Expenses>> {
+        return expenseDao.getExpensesByCategoryAndDateRange(userId, categoryId, startDate, endDate)
+    }
+
+    suspend fun getTotalSpentInDateRange(userId: Long, startDate: Date, endDate: Date): Double {
+        return expenseDao.getTotalSpentInDateRange(userId, startDate, endDate) ?: 0.0
+    }
+
+    fun getTotalSpentByCategory(
+        userId: Long,
+        startDate: Date,
+        endDate: Date
+    ): Flow<List<CategorySpending>> {
+        return expenseDao.getTotalSpentByCategory(userId, startDate, endDate)
+    }
+
+    suspend fun getExpensesPaginated(userId: Long, page: Int, pageSize: Int): List<Expenses> {
+        val offset = page * pageSize
+        return expenseDao.getExpensesPaginated(userId, pageSize, offset)
+    }
+
+    suspend fun getTotalExpenseCount(userId: Long): Int = expenseDao.getTotalExpenseCount(userId)
 }

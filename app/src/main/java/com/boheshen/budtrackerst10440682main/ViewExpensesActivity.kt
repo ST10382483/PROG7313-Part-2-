@@ -22,3 +22,20 @@ class ViewExpensesActivity : AppCompatActivity() {
     private lateinit var txtTransactions: TextView
     private lateinit var txtPeriod: TextView
     private lateinit var expenseContainer: LinearLayout
+
+    private val expenses = mutableListOf<Expense>()
+    private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_view_expenses)
+
+        edtStartDate = findViewById(R.id.edtStartDate)
+        edtEndDate = findViewById(R.id.edtEndDate)
+        btnFilter = findViewById(R.id.btnFilter)
+        btnReset = findViewById(R.id.btnReset)
+        btnAddExpense = findViewById(R.id.btnAddExpense)
+        txtTotalExpenses = findViewById(R.id.txtTotalExpenses)
+        txtTransactions = findViewById(R.id.txtTransactions)
+        txtPeriod = findViewById(R.id.txtPeriod)
+        expenseContainer = findViewById(R.id.expenseContainer)

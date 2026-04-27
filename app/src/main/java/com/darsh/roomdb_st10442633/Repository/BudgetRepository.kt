@@ -214,5 +214,59 @@ class BudgetRepository(private val context: Context) {
 
     suspend fun deleteBudgetGoalForMonth(userId: Long, year: Int, month: Int) {
         budgetGoalDao.deleteBudgetGoalForMonth(userId, year, month)
+
+        //BUDGET STATUS CHECK
+
+        suspend fun checkBudgetStatus(userId: Long, year: Int, month: Int): BudgetStatus {
+            val goal = getMonthlyBudgetGoal(userId, year, month)
+
+            if (goal == null) {
+                return BudgetStatus.NoGoalSet
+            }
+
+            val calendar = Calendar.getInstance()
+            calendar.set(year, month - 1, 1, 0, 0, 0)
+            val startDate = calendar.time
+            calendar.set(year, month, 0, 23, 59, 59)
+            val endDate = calendar.time
+
+            val totalSpent = getTotalSpentInDateRange(userId, startDate, endDate)
+
+            return when {
+
+                totalSpent > goal.maxExpenditure -> BudgetStatus.AboveMax(
+                    maxGoal = goal.maxExpenditure,
+                    currentSpent = totalSpent,
+                    overBy = totalSpent - goal.maxExpenditure
+                )
+                else -> BudgetStatus.WithinRange(
+                    maxGoal = goal.maxExpenditure,
+                    currentSpent = totalSpent,
+                    remainingBudget = goal.maxExpenditure - totalSpent
+                )
+            }
+        }
+    }
+
+    // Sealed class for budget status
+    sealed class BudgetStatus {
+        object NoGoalSet : BudgetStatus()
+        data class BelowMin(
+            val minGoal: Double,
+            val currentSpent: Double,
+            val remainingToReachMin: Double
+        ) : BudgetStatus()
+
+        data class WithinRange(
+            val maxGoal: Double,
+            val currentSpent: Double,
+            val remainingBudget: Double
+        ) : BudgetStatus()
+
+        data class AboveMax(
+            val maxGoal: Double,
+            val currentSpent: Double,
+            val overBy: Double
+        ) : BudgetStatus()
     }
 }

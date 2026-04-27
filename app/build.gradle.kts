@@ -65,4 +65,3 @@ dependencies {
     androidTestImplementation("androidx.room:room-testing:2.6.1")
 }
 
-

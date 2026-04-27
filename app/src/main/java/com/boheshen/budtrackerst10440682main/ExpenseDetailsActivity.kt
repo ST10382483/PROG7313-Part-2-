@@ -87,3 +87,58 @@ class ExpenseDetailsActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun updateReceiptImage(imageUri: String) {
+        val prefs = getSharedPreferences("ExpenseData", MODE_PRIVATE)
+        val json = prefs.getString("expenses", "[]")
+        val array = JSONArray(json)
+
+        for (i in 0 until array.length()) {
+            val obj = array.getJSONObject(i)
+
+            if (
+                obj.getString("date") == expense.date &&
+                obj.getString("category") == expense.category &&
+                obj.getString("description") == expense.description &&
+                obj.getDouble("amount") == expense.amount &&
+                obj.getString("addedOn") == expense.addedOn
+            ) {
+                obj.put("imageUri", imageUri)
+                break
+            }
+        }
+
+        prefs.edit()
+            .putString("expenses", array.toString())
+            .apply()
+    }
+
+    private fun deleteExpense() {
+        val prefs = getSharedPreferences("ExpenseData", MODE_PRIVATE)
+        val json = prefs.getString("expenses", "[]")
+        val array = JSONArray(json)
+        val updatedArray = JSONArray()
+
+        for (i in 0 until array.length()) {
+            val obj = array.getJSONObject(i)
+
+            val isSameExpense =
+                obj.getString("date") == expense.date &&
+                        obj.getString("category") == expense.category &&
+                        obj.getString("description") == expense.description &&
+                        obj.getDouble("amount") == expense.amount &&
+                        obj.getString("addedOn") == expense.addedOn
+
+            if (!isSameExpense) {
+                updatedArray.put(obj)
+            }
+        }
+
+        prefs.edit()
+            .putString("expenses", updatedArray.toString())
+            .apply()
+
+        Toast.makeText(this, "Expense deleted", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+}

@@ -39,3 +39,22 @@ class DatabaseTest {
         val userId = repository.registerUser("testuser", "password123")
         assertTrue(userId > 0)
     }
+
+    @Test
+    fun testExpenseCreation() = runBlocking {
+        val userId = repository.registerUser("expenseuser", "pass123")
+        val categoryId = repository.addCategory(userId, "Food")
+
+        val expenseId = repository.addExpense(
+            userId = userId,
+            categoryId = categoryId,
+            date = Date(),
+            startTime = Date(),
+            endTime = Date(),
+            description = "Test expense",
+            amount = 100.0
+        )
+
+        assertTrue(expenseId > 0)
+    }
+}

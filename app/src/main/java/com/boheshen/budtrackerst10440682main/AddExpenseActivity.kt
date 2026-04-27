@@ -74,3 +74,63 @@ class AddExpenseActivity : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == imagePickerCode && resultCode == RESULT_OK) {
+            selectedImageUri = data?.data
+
+            selectedImageUri?.let {
+                contentResolver.takePersistableUriPermission(
+                    it,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+
+                imgPreview.setImageURI(it)
+            }
+        }
+    }
+
+    private fun saveExpense() {
+        val date = edtDate.text.toString().trim()
+        val category = edtCategory.text.toString().trim()
+        val description = edtDescription.text.toString().trim()
+        val amountText = edtAmount.text.toString().trim()
+
+        if (date.isEmpty() || category.isEmpty() || description.isEmpty() || amountText.isEmpty()) {
+            Toast.makeText(this, "Please complete all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val amount = amountText.toDoubleOrNull()
+
+        if (amount == null || amount <= 0) {
+            Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val sharedPreferences = getSharedPreferences("ExpenseData", MODE_PRIVATE)
+        val jsonString = sharedPreferences.getString("expenses", "[]")
+        val jsonArray = JSONArray(jsonString)
+
+        val addedOn = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(Date())
+
+        val newExpense = JSONObject()
+        newExpense.put("date", date)
+        newExpense.put("category", category)
+        newExpense.put("description", description)
+        newExpense.put("amount", amount)
+        newExpense.put("addedOn", addedOn)
+        newExpense.put("imageUri", selectedImageUri?.toString())
+
+        jsonArray.put(newExpense)
+
+        sharedPreferences.edit()
+            .putString("expenses", jsonArray.toString())
+            .apply()
+
+        Toast.makeText(this, "Expense added successfully", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+}

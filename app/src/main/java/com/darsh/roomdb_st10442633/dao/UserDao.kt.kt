@@ -5,7 +5,7 @@ import com.darsh.roomdb_st10442633.models.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface UserDao {
+interface `UserDao.kt` {
 
     @Insert
     suspend fun insertUser(user: User): Long
@@ -22,8 +22,8 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE username = :username")
     suspend fun getUserByUsername(username: String): User?
 
-    @Query("SELECT * FROM users WHERE username = :username AND password = :password")
-    suspend fun login(username: String, password: String): User?
+    //@Query("SELECT * FROM users WHERE username = :username AND password = :password")
+    //suspend fun login(username: String, password: String): User?
 
     @Query("SELECT * FROM users")
     fun getAllUsers(): Flow<List<User>>

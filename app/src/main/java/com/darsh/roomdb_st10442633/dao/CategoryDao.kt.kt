@@ -5,7 +5,7 @@ import com.darsh.roomdb_st10442633.models.Category
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CategoryDao {
+interface `CategoryDao.kt` {
 
     @Insert
     suspend fun insertCategory(category: Category): Long

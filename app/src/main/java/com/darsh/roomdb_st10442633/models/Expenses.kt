@@ -25,7 +25,7 @@ import java.util.Locale.Category
     ],
     indices = [Index("userId"), Index("categoryId"), Index("date")]
 )
-data class ExpenseEntry(
+data class Expenses(
     @PrimaryKey(autoGenerate = true)
     val expenseId: Long = 0,
     val userId: Long,

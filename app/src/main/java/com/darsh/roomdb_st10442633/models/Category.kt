@@ -1,4 +1,4 @@
-package com.darsh.roomdb_st10442633
+package com.darsh.roomdb_st10442633.models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -17,13 +17,14 @@ import androidx.room.PrimaryKey
     ],
     indices = [Index("userId")]
 )
-data class `Category.kt`(
+data class Category(
     @PrimaryKey(autoGenerate = true)
     val categoryId: Long = 0,
     val userId: Long,
     val name: String,
     val description: String? = null,
-    val icon: String? = null, //Stores the image location
+    val icon: String? = null,
+    val color: String? = null,
     val isDefault: Boolean = false,
     val createdAt: Long = System.currentTimeMillis()
 )

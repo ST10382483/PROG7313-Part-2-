@@ -1,13 +1,14 @@
 package com.aiden.budtrackr_st10441232
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 
 class GoalsActivity : Activity() {
 
@@ -25,6 +26,8 @@ class GoalsActivity : Activity() {
         setContentView(R.layout.activity_goals)
 
         val addGoal = findViewById<TextView>(R.id.btnAddGoal)
+        val viewBudget = findViewById<TextView>(R.id.btnViewBudget)
+        val budgetSummary = findViewById<TextView>(R.id.budgetSummary)
         val container = findViewById<LinearLayout>(R.id.goalsContainer)
         val emptyText = findViewById<TextView>(R.id.emptyGoalsText)
 
@@ -44,6 +47,55 @@ class GoalsActivity : Activity() {
 
         addGoal.setOnClickListener {
             startActivity(Intent(this, CreateGoalActivity::class.java))
+        }
+
+        viewBudget.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.dialog_budget, null)
+
+            val minInput = dialogView.findViewById<EditText>(R.id.minBudgetInput)
+            val maxInput = dialogView.findViewById<EditText>(R.id.maxBudgetInput)
+            val resultText = dialogView.findViewById<TextView>(R.id.budgetResult)
+
+            val dialog = AlertDialog.Builder(this)
+                .setTitle("Monthly Budget")
+                .setView(dialogView)
+                .setPositiveButton("Calculate", null)
+                .setNegativeButton("Close", null)
+                .create()
+
+            dialog.setOnShowListener {
+                val calculateButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+
+                calculateButton.setOnClickListener {
+                    val min = minInput.text.toString().toFloatOrNull()
+                    val max = maxInput.text.toString().toFloatOrNull()
+                    val spent = goalList.sumOf { it.current.toDouble() }.toFloat()
+
+                    if (min == null || max == null || max <= min) {
+                        resultText.text = "Enter valid minimum and maximum amounts."
+                        return@setOnClickListener
+                    }
+
+                    val result = when {
+                        spent > max -> "Over budget by R${spent - max}"
+                        spent < min -> "Under minimum by R${min - spent}"
+                        else -> "Within budget. R${max - spent} left before maximum."
+                    }
+
+                    resultText.text =
+                        "Total Spent: R$spent\n" +
+                                "Minimum Goal: R$min\n" +
+                                "Maximum Goal: R$max\n\n" +
+                                result
+
+                    budgetSummary.text =
+                        "Spent: R$spent\n" +
+                                "Min: R$min | Max: R$max\n" +
+                                result
+                }
+            }
+
+            dialog.show()
         }
     }
 

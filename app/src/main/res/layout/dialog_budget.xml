@@ -20,7 +20,7 @@
         android:inputType="numberDecimal"
         android:layout_marginTop="15dp" />
 
- 
+
     <TextView
         android:id="@+id/budgetResult"
         android:layout_width="match_parent"

@@ -93,7 +93,7 @@
             android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
             android:background="@android:color/white" />
-        
+
         <Button
             android:id="@+id/btnAddReceipt"
             android:text="+ Add Receipt Image"

@@ -47,4 +47,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <EditText
+            android:id="@+id/edtAmount"
+            android:hint="Amount"
+            android:inputType="numberDecimal"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:text="Select Receipt Image"
+            android:backgroundTint="#2EAD5B"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnSaveExpense"
+            android:text="Save Expense"
+            android:backgroundTint="#2EAD5B"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

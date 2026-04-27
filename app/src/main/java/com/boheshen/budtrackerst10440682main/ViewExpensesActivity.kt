@@ -142,3 +142,43 @@ class ViewExpensesActivity : AppCompatActivity() {
             val topRow = LinearLayout(this)
             topRow.orientation = LinearLayout.HORIZONTAL
             topRow.gravity = Gravity.CENTER_VERTICAL
+
+            val category = TextView(this)
+            category.text = expense.category
+            category.textSize = 15f
+            category.setTypeface(null, android.graphics.Typeface.BOLD)
+            category.setTextColor(Color.parseColor("#247A3D"))
+            category.layoutParams = LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+            )
+
+            val amount = TextView(this)
+            amount.text = "R %.2f".format(expense.amount)
+            amount.textSize = 15f
+            amount.setTypeface(null, android.graphics.Typeface.BOLD)
+            amount.setTextColor(Color.parseColor("#10233D"))
+
+            topRow.addView(category)
+            topRow.addView(amount)
+
+            val description = TextView(this)
+            description.text = expense.description
+            description.textSize = 13f
+            description.setTextColor(Color.parseColor("#333333"))
+            description.setPadding(0, 8, 0, 6)
+
+            val bottomRow = LinearLayout(this)
+            bottomRow.orientation = LinearLayout.HORIZONTAL
+            bottomRow.gravity = Gravity.CENTER_VERTICAL
+
+            val date = TextView(this)
+            date.text = expense.date
+            date.textSize = 12f
+            date.setTextColor(Color.parseColor("#607D6B"))
+            date.layoutParams = LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+            )

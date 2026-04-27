@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- DETAILS CARD -->
+        <!-- DETAILS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,3 +75,60 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
+        <TextView
+            android:text="Receipt"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- RECEIPT IMAGE -->
+        <ImageView
+            android:id="@+id/imgReceipt"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:background="@android:color/white" />
+        
+        <Button
+            android:id="@+id/btnAddReceipt"
+            android:text="+ Add Receipt Image"
+            android:backgroundTint="#2EAD5B"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
+
+        <!-- BUTTONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnBackToList"
+                android:text="← Back to List"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:text="Delete Expense"
+                android:backgroundTint="#D32F2F"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -11,15 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BudtrackerST10440682Main">
+
+        <activity android:name=".ReceiptActivity" />
+        <activity android:name=".ExpenseDetailsActivity" />
+        <activity android:name=".AddExpenseActivity" />
+        <activity android:name=".ViewExpensesActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

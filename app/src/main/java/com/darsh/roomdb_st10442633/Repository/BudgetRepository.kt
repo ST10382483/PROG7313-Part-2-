@@ -160,4 +160,59 @@ class BudgetRepository(private val context: Context) {
     }
 
     suspend fun getTotalExpenseCount(userId: Long): Int = expenseDao.getTotalExpenseCount(userId)
+
+    //BUDGET GOAL OPERATIONS
+
+    suspend fun setMonthlyBudgetGoal(
+        userId: Long,
+        year: Int,
+        month: Int,
+        minGoal: Double,
+        maxGoal: Double,
+        categoryId: Long? = null
+    ) {
+        val existingGoal = if (categoryId != null) {
+            budgetGoalDao.getCategoryBudgetGoalForMonth(userId, year, month, categoryId)
+        } else {
+            budgetGoalDao.getOverallBudgetGoalForMonth(userId, year, month)
+        }
+
+        if (existingGoal != null) {
+            val updatedGoal = existingGoal.copy(
+                maxExpenditure = maxGoal,
+                updatedAt = System.currentTimeMillis()
+            )
+            budgetGoalDao.updateBudgetGoal(updatedGoal)
+        } else {
+            val goal = BudgetGoal(
+                userId = userId,
+                year = year,
+                month = month,
+                maxExpenditure = maxGoal,
+                categoryId = categoryId
+            )
+            budgetGoalDao.insertBudgetGoal(goal)
+        }
+    }
+
+    suspend fun getMonthlyBudgetGoal(userId: Long, year: Int, month: Int): BudgetGoal? {
+        return budgetGoalDao.getOverallBudgetGoalForMonth(userId, year, month)
+    }
+
+    suspend fun getCategoryBudgetGoal(
+        userId: Long,
+        year: Int,
+        month: Int,
+        categoryId: Long
+    ): BudgetGoal? {
+        return budgetGoalDao.getCategoryBudgetGoalForMonth(userId, year, month, categoryId)
+    }
+
+    fun getAllBudgetGoals(userId: Long): Flow<List<BudgetGoal>> = budgetGoalDao.getAllBudgetGoals(userId)
+
+    fun getBudgetGoalsForYear(userId: Long, year: Int): Flow<List<BudgetGoal>> = budgetGoalDao.getBudgetGoalsForYear(userId, year)
+
+    suspend fun deleteBudgetGoalForMonth(userId: Long, year: Int, month: Int) {
+        budgetGoalDao.deleteBudgetGoalForMonth(userId, year, month)
+    }
 }

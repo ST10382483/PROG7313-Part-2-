@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 
 class GoalsActivity : Activity() {
 
@@ -126,10 +127,34 @@ class GoalsActivity : Activity() {
         goalBox.setPadding(18, 18, 18, 18)
         goalBox.setBackgroundColor(Color.rgb(238, 242, 243))
 
+        val topRow = LinearLayout(this)
+        topRow.orientation = LinearLayout.HORIZONTAL
+
         val title = TextView(this)
         title.text = "${goal.type}\n${goal.name}\nCurrent: R${goal.current}\nLeft: R$remaining"
         title.textSize = 16f
         title.setTextColor(Color.rgb(100, 100, 100))
+        title.layoutParams = LinearLayout.LayoutParams(
+            0,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            1f
+        )
+
+        val editButton = TextView(this)
+        editButton.text = "Edit"
+        editButton.setTextColor(Color.rgb(46, 204, 113))
+        editButton.textSize = 14f
+        editButton.setPadding(10, 0, 10, 0)
+
+        val deleteButton = TextView(this)
+        deleteButton.text = "Delete"
+        deleteButton.setTextColor(Color.rgb(239, 83, 80))
+        deleteButton.textSize = 14f
+        deleteButton.setPadding(10, 0, 0, 0)
+
+        topRow.addView(title)
+        topRow.addView(editButton)
+        topRow.addView(deleteButton)
 
         val bar = LinearLayout(this)
         bar.orientation = LinearLayout.HORIZONTAL
@@ -149,7 +174,18 @@ class GoalsActivity : Activity() {
         bar.addView(green)
         bar.addView(red)
 
-        goalBox.addView(title)
+        editButton.setOnClickListener {
+            Toast.makeText(this, "Edit will be connected after RoomDB", Toast.LENGTH_SHORT).show()
+        }
+
+        deleteButton.setOnClickListener {
+            goalList.removeAt(index)
+            saveGoals()
+            displayGoals(container, emptyText)
+            Toast.makeText(this, "Goal deleted", Toast.LENGTH_SHORT).show()
+        }
+
+        goalBox.addView(topRow)
         goalBox.addView(bar)
 
         val spacing = View(this)

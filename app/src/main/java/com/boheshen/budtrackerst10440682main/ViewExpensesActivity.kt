@@ -39,3 +39,25 @@ class ViewExpensesActivity : AppCompatActivity() {
         txtTransactions = findViewById(R.id.txtTransactions)
         txtPeriod = findViewById(R.id.txtPeriod)
         expenseContainer = findViewById(R.id.expenseContainer)
+
+        loadExpenses()
+
+        edtStartDate.setOnClickListener { showDatePicker(edtStartDate) }
+        edtEndDate.setOnClickListener { showDatePicker(edtEndDate) }
+
+        btnFilter.setOnClickListener { filterExpenses() }
+
+        btnReset.setOnClickListener {
+            edtStartDate.setText("")
+            edtEndDate.setText("")
+            showExpenses(expenses)
+            txtPeriod.text = "Period\nAll"
+        }
+
+        btnAddExpense.setOnClickListener {
+            startActivity(Intent(this, AddExpenseActivity::class.java))
+        }
+
+        showExpenses(expenses)
+        txtPeriod.text = "Period\nAll"
+    }

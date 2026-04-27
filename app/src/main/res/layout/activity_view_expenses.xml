@@ -135,3 +135,34 @@
                     android:layout_height="45dp" />
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- SUMMARY -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/txtTotalExpenses"
+                android:text="Total Expenses\nR 0.00"
+                android:gravity="center"
+                android:background="#F1FFF4"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="80dp" />
+
+            <TextView
+                android:id="@+id/txtTransactions"
+                android:text="Transactions\n0"
+                android:gravity="center"
+                android:background="#F1FFF4"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="80dp" />

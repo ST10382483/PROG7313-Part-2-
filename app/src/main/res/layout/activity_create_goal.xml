@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1B2A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:src="@drawable/budtrackrlogo"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Goal"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp" />
+
+        <EditText
+            android:id="@+id/goalName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Goal Name"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginTop="20dp" />
+
+        <Spinner
+            android:id="@+id/goalTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2ECC71"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/goalTarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Goal Target Amount"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/goalCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Current Amount Towards Goal"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/saveGoalBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Goal"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -79,7 +79,7 @@
             android:stateListAnimator="@null"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Go to register  of havent got a login passwprd -->
+        <!-- Go to register  of haven't got a login password -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

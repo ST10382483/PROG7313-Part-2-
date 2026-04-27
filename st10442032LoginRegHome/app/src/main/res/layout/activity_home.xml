@@ -184,6 +184,17 @@
             android:scaleType="fitCenter"
             android:padding="12dp"/>
 
+        <!-- Goals NEW!!!!!! -->
+        <ImageButton
+            android:id="@+id/navGoals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/goals"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
     </LinearLayout>
 
 </LinearLayout>

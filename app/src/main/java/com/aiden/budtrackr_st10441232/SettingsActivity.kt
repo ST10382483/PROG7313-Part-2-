@@ -12,9 +12,14 @@ class SettingsActivity : Activity() {
         setContentView(R.layout.activity_settings)
 
         val goals = findViewById<TextView>(R.id.btnGoals)
+        val deleteAccount = findViewById<TextView>(R.id.btnDelete)
 
         goals.setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
+        }
+
+        deleteAccount.setOnClickListener {
+            startActivity(Intent(this, DeleteAccountActivity::class.java))
         }
     }
 }

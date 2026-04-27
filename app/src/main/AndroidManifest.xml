@@ -11,10 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudTrackr_st10441232">
 
-
         <activity android:name=".GoalsActivity" />
         <activity android:name=".CreateGoalActivity" />
-
+        <activity android:name=".DeleteAccountActivity" />
 
         <activity
             android:name=".SettingsActivity"

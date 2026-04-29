@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Home screen -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0D1B2A">
 
+    <!-- Top bar with logo and settings -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +32,7 @@
             android:src="@drawable/settings" />
     </LinearLayout>
 
+    <!-- Main scrollable home content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -41,6 +45,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
+            <!-- Welcome text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,6 +55,7 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="4dp" />
 
+            <!-- Logged-in username -->
             <TextView
                 android:id="@+id/homeUsername"
                 android:layout_width="wrap_content"
@@ -60,13 +66,17 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="32dp" />
 
+            <!-- Account card, opens income/expense summary -->
             <LinearLayout
+                android:id="@+id/accountCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R 0.00"
-                    android:textColor="#000000"
+                    android:textColor="#EF5350"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -106,11 +116,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R 0.00"
-                    android:textColor="#000000"
+                    android:textColor="#2ECC71"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Opens expenses screen -->
             <Button
                 android:id="@+id/expensesButton"
                 android:layout_width="160dp"
@@ -122,6 +133,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Bottom navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"

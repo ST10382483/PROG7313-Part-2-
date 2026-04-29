@@ -10,6 +10,7 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Page title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
             android:gravity="center"
             android:layout_marginBottom="20dp" />
 
+        <!-- Date input -->
         <EditText
             android:id="@+id/edtDate"
             android:layout_width="match_parent"
@@ -30,6 +32,7 @@
             android:background="@android:color/white"
             android:padding="12dp" />
 
+        <!-- Category input -->
         <EditText
             android:id="@+id/edtCategory"
             android:layout_width="match_parent"
@@ -39,6 +42,7 @@
             android:padding="12dp"
             android:layout_marginTop="12dp" />
 
+        <!-- Description input -->
         <EditText
             android:id="@+id/edtDescription"
             android:layout_width="match_parent"
@@ -48,6 +52,7 @@
             android:padding="12dp"
             android:layout_marginTop="12dp" />
 
+        <!-- Amount input -->
         <EditText
             android:id="@+id/edtAmount"
             android:layout_width="match_parent"
@@ -58,6 +63,7 @@
             android:padding="12dp"
             android:layout_marginTop="12dp" />
 
+        <!-- Button to select receipt image -->
         <Button
             android:id="@+id/btnSelectImage"
             android:layout_width="match_parent"
@@ -67,6 +73,7 @@
             android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
+        <!-- Preview of selected receipt image -->
         <ImageView
             android:id="@+id/imgPreview"
             android:layout_width="match_parent"
@@ -75,6 +82,7 @@
             android:scaleType="fitCenter"
             android:background="@android:color/white" />
 
+        <!-- Save expense button -->
         <Button
             android:id="@+id/btnSaveExpense"
             android:layout_width="match_parent"

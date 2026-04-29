@@ -35,10 +35,10 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             lifecycleScope.launch {
-                val existingUser = repo.loginUser(user, pass)
+                val existingUser = repo.getUserByUsername(user)
 
                 if (existingUser != null) {
-                    Toast.makeText(this@RegisterActivity, "User already exists", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "This email/username is already registered", Toast.LENGTH_SHORT).show()
                 } else {
                     repo.registerUser(User(username = user, password = pass))
                     Toast.makeText(this@RegisterActivity, "Account created successfully", Toast.LENGTH_SHORT).show()

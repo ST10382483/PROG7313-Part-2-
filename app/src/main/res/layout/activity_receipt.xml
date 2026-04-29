@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Full screen receipt viewer -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,6 +8,7 @@
     android:orientation="vertical"
     android:padding="20dp">
 
+    <!-- Top title -->
     <TextView
         android:id="@+id/btnCloseTop"
         android:text="Receipt"
@@ -15,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- Full receipt image -->
     <ImageView
         android:id="@+id/imgReceiptFull"
         android:layout_width="match_parent"
@@ -23,6 +27,7 @@
         android:layout_marginTop="20dp"
         android:scaleType="fitCenter" />
 
+    <!-- Button to close the screen -->
     <Button
         android:id="@+id/btnClose"
         android:text="Close"
@@ -32,4 +37,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp" />
+
 </LinearLayout>

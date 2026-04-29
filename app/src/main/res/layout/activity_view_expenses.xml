@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Title -->
         <TextView
             android:text="View Expenses"
             android:textColor="@android:color/white"
@@ -19,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <!-- Description -->
         <TextView
             android:text="View all your expense entries for a selected period."
             android:textColor="@android:color/white"
@@ -27,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <!-- Button to add a new expense -->
         <Button
             android:id="@+id/btnAddExpense"
             android:text="+ Add New Expense"
@@ -37,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
+        <!-- Filter section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,12 +51,14 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp">
 
+            <!-- Date range inputs -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
+                <!-- Start date -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -79,6 +86,7 @@
                         android:layout_height="45dp" />
                 </LinearLayout>
 
+                <!-- End date -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -107,6 +115,7 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Filterand Reset buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,6 +145,7 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Summary section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,6 +186,7 @@
                 android:layout_height="80dp" />
         </LinearLayout>
 
+        <!-- Expense list section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -192,6 +203,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <!-- List of expenses -->
             <LinearLayout
                 android:id="@+id/listExpenses"
                 android:layout_width="match_parent"
@@ -200,6 +212,7 @@
                 android:layout_marginTop="12dp" />
         </LinearLayout>
 
+        <!-- Back button -->
         <Button
             android:id="@+id/btnBack"
             android:text="Back"

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,6 +17,7 @@
             android:orientation="vertical"
             android:background="#F5F5F5">
 
+            <!-- Top section with logo -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -29,6 +31,7 @@
                     android:scaleType="fitCenter" />
             </LinearLayout>
 
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,6 +41,7 @@
                 android:layout_margin="16dp"
                 android:textColor="#000000" />
 
+            <!-- Pie chart showing expense distribution -->
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChart"
                 android:layout_width="300dp"
@@ -45,6 +49,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp" />
 
+            <!-- Message shown when no data exists -->
             <TextView
                 android:id="@+id/txtNoData"
                 android:layout_width="match_parent"
@@ -56,6 +61,7 @@
                 android:visibility="gone"
                 android:layout_marginBottom="16dp" />
 
+            <!-- Transport total -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +84,7 @@
                     android:textColor="#000000" />
             </LinearLayout>
 
+            <!-- Takeout total -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,6 +107,7 @@
                     android:textColor="#000000" />
             </LinearLayout>
 
+            <!-- Groceries total -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,6 +130,7 @@
                     android:textColor="#000000" />
             </LinearLayout>
 
+            <!-- Personal spending button -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,6 +153,7 @@
                     android:textColor="#000000" />
             </LinearLayout>
 
+            <!-- Button to add expenses -->
             <Button
                 android:id="@+id/btnAddMore"
                 android:layout_width="match_parent"

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Account summary screen -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#071A2F"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Summary"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <!-- Summary card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="20dp"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:id="@+id/txtIncomeTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Income: R 0.00"
+                android:textColor="#2ECC71"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtExpenseTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Expenses: R 0.00"
+                android:textColor="#EF5350"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/txtBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Balance: R 0.00"
+                android:textColor="#10233D"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp" />
+        </LinearLayout>
+
+        <!-- Income input card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="20dp"
+            android:layout_marginTop="22dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Monthly Income"
+                android:textColor="#10233D"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtIncomeMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Month e.g. April"
+                android:textColor="#000000"
+                android:textColorHint="#777777"
+                android:backgroundTint="#2ECC71"
+                android:layout_marginTop="18dp" />
+
+            <EditText
+                android:id="@+id/edtIncomeAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Income Amount"
+                android:inputType="numberDecimal"
+                android:textColor="#000000"
+                android:textColorHint="#777777"
+                android:backgroundTint="#2ECC71"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:id="@+id/btnAddIncome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Income"
+                android:backgroundTint="#2EAD5B"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+
+        <!-- Back button -->
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:backgroundTint="@android:color/white"
+            android:textColor="#071A2F"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>

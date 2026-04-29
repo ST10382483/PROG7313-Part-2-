@@ -10,6 +10,10 @@ class BudgetRepository(private val db: AppDatabase) {
         return db.userDao().login(username, password)
     }
 
+    suspend fun getUserByUsername(username: String): User? {
+        return db.userDao().getUserByUsername(username)
+    }
+
     suspend fun updatePassword(userId: Int, newPassword: String) {
         db.userDao().updatePassword(userId, newPassword)
     }
@@ -25,6 +29,7 @@ class BudgetRepository(private val db: AppDatabase) {
     suspend fun getCategories(): List<Category> {
         return db.categoryDao().getAllCategories()
     }
+
 
     suspend fun addExpense(expense: Expense) {
         db.expenseDao().insertExpense(expense)
@@ -42,7 +47,16 @@ class BudgetRepository(private val db: AppDatabase) {
         db.expenseDao().deleteExpense(expenseId)
     }
 
-    suspend fun setMonthlyGoal(goal: MonthlyGoal) {
+
+    suspend fun addIncome(income: Income) {
+        db.incomeDao().insertIncome(income)
+    }
+
+    suspend fun getIncomeForUser(userId: Int): List<Income> {
+        return db.incomeDao().getIncomeForUser(userId)
+    }
+
+        suspend fun setMonthlyGoal(goal: MonthlyGoal) {
         db.monthlyGoalDao().insertGoal(goal)
     }
 

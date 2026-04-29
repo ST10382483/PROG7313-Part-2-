@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Help / contact screen -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D1B2A">
 
+    <!-- App logo -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="130dp"
@@ -13,6 +16,7 @@
         android:src="@drawable/logo"
         android:scaleType="fitCenter" />
 
+    <!-- Main content section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +26,7 @@
         android:orientation="vertical"
         android:padding="30dp">
 
+        <!-- Heading -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +36,7 @@
             android:textStyle="bold"
             android:gravity="center" />
 
+        <!-- Support email -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +47,7 @@
             android:layout_marginTop="30dp"
             android:gravity="center" />
 
+        <!-- Back button -->
         <Button
             android:id="@+id/btnHome"
             android:layout_width="260dp"

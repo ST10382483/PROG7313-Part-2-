@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,7 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Back arrow -->
         <TextView
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
@@ -18,6 +20,7 @@
             android:textColor="@android:color/white"
             android:textSize="32sp" />
 
+        <!-- Page title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +39,7 @@
             android:orientation="vertical"
             android:padding="18dp">
 
+            <!-- Date -->
             <TextView
                 android:id="@+id/txtDate"
                 android:layout_width="match_parent"
@@ -43,6 +47,7 @@
                 android:textColor="#10233D"
                 android:textStyle="bold" />
 
+            <!-- Category -->
             <TextView
                 android:id="@+id/txtCategory"
                 android:layout_width="match_parent"
@@ -50,6 +55,7 @@
                 android:layout_marginTop="12dp"
                 android:textColor="#10233D" />
 
+            <!-- Description -->
             <TextView
                 android:id="@+id/txtDescription"
                 android:layout_width="match_parent"
@@ -57,6 +63,7 @@
                 android:layout_marginTop="12dp"
                 android:textColor="#333333" />
 
+            <!-- Amount -->
             <TextView
                 android:id="@+id/txtAmount"
                 android:layout_width="match_parent"
@@ -65,6 +72,7 @@
                 android:textColor="#247A3D"
                 android:textStyle="bold" />
 
+            <!-- Date -->
             <TextView
                 android:id="@+id/txtAddedOn"
                 android:layout_width="match_parent"
@@ -73,6 +81,7 @@
                 android:textColor="#607D6B" />
         </LinearLayout>
 
+        <!-- Section title for receipt -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,6 +91,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Receipt image -->
         <ImageView
             android:id="@+id/imgReceipt"
             android:layout_width="match_parent"
@@ -90,6 +100,7 @@
             android:background="@android:color/white"
             android:scaleType="centerCrop" />
 
+        <!-- Button to go back -->
         <Button
             android:id="@+id/btnBackToList"
             android:layout_width="match_parent"
@@ -97,6 +108,7 @@
             android:layout_marginTop="16dp"
             android:text="← Back to List" />
 
+        <!-- Delete expense button -->
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="match_parent"

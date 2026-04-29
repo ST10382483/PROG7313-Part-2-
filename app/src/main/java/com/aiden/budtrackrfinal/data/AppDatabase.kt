@@ -11,9 +11,10 @@ import androidx.room.RoomDatabase
         Category::class,
         Expense::class,
         MonthlyGoal::class,
-        Goal::class
+        Goal::class,
+        Income::class
     ],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -22,8 +23,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun expenseDao(): ExpenseDao
     abstract fun monthlyGoalDao(): MonthlyGoalDao
-
     abstract fun goalDao(): GoalDao
+    abstract fun incomeDao(): IncomeDao
 
     companion object {
         @Volatile
@@ -35,7 +36,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "budtrackr_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
 
                 INSTANCE = instance
                 instance

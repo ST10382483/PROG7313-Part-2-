@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1B2A">
+
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/logo"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:layout_marginStart="8dp"/>
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="62dp"
+            android:src="@mipmap/settings"/>
+    </LinearLayout>
+
+    <!-- Settings menu items -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Privacy -->
+        <TextView
+            android:id="@+id/settingsPrivacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A4A5A"/>
+
+        <!-- Goals -->
+        <TextView
+            android:id="@+id/settingsGoals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Goals"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A4A5A"/>
+
+        <!-- Reset Password -->
+        <TextView
+            android:id="@+id/settingsResetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset Password"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A4A5A"/>
+
+        <!-- Delete Account -->
+        <TextView
+            android:id="@+id/settingsDeleteAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Account"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A4A5A"/>
+
+        <!-- Help -->
+        <TextView
+            android:id="@+id/settingsHelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Help"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A4A5A"/>
+
+    </LinearLayout>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#0D1B2A"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/home"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navTransactions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/transaction"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navAccount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/account"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navNotifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/notification"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

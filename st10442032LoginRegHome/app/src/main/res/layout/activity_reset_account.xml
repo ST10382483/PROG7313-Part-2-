@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1B2A">
+
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/logo"/>
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Account Password"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Email label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please enter your Email Address:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Email input -->
+        <EditText
+            android:id="@+id/resetEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Note -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note you will be sent a confirmation email which will allow you to reset your Password"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Reset button -->
+        <Button
+            android:id="@+id/resetAccountBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Reset Account"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50"
+            android:stateListAnimator="@null"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"/>
+
+    </LinearLayout>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#0D1B2A"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/home"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navTransactions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/transaction"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navAccount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/account"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navNotifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/notification"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

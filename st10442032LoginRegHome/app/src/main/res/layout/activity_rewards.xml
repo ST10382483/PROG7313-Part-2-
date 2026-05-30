@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1B2A">
+
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/logo"/>
+    </LinearLayout>
+
+    <!-- Rewards content card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <!-- REWARDS title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REWARDS"
+                android:textColor="#4CAF50"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Medal icons row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <!-- Silver medal -->
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="🥈"
+                    android:textSize="48sp"
+                    android:gravity="center"/>
+
+                <!-- Gold medal (centre - current level) -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="🥇"
+                    android:textSize="56sp"
+                    android:gravity="center"/>
+
+                <!-- Bronze medal -->
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="🥉"
+                    android:textSize="48sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Level title -->
+            <TextView
+                android:id="@+id/rewardLevelTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRONZE LEVEL"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Achievement but i removed the writting cause i just dont like how it looked -->
+            <TextView
+                android:id="@+id/rewardDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#0D1B2A"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/home"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navTransactions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/transaction"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navAccount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/account"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+        <ImageButton
+            android:id="@+id/navNotifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0D1B2A"
+            android:src="@mipmap/notification"
+            android:scaleType="fitCenter"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

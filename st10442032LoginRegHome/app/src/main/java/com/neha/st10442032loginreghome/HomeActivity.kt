@@ -5,18 +5,23 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+// Home screen — shown after successful login or registration
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Link to the home screen layout
         setContentView(R.layout.activity_home)
 
+        // Get references to UI elements
         val usernameText = findViewById<TextView>(R.id.homeUsername)
         val expensesButton = findViewById<Button>(R.id.expensesButton)
+        val settingsIcon = findViewById<ImageView>(R.id.settingsIcon)
         val navHome = findViewById<ImageButton>(R.id.navHome)
         val navTransactions = findViewById<ImageButton>(R.id.navTransactions)
         val navAccount = findViewById<ImageButton>(R.id.navAccount)
@@ -33,14 +38,19 @@ class HomeActivity : AppCompatActivity() {
             usernameText.text = email.uppercase()
         }
 
+        // Settings icon — opens the Settings screen
+        settingsIcon.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
         // Expenses button — placeholder for now
         expensesButton.setOnClickListener {
             Toast.makeText(this, "Expenses coming soon!", Toast.LENGTH_SHORT).show()
         }
 
-        // Bottom nav — home is already active, others are placeholders
+        // Bottom nav buttons
         navHome.setOnClickListener {
-            // Already on home, do nothing
+            // Already on home screen, do nothing
         }
         navTransactions.setOnClickListener {
             Toast.makeText(this, "Transactions coming soon!", Toast.LENGTH_SHORT).show()

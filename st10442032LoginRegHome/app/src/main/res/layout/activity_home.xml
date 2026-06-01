@@ -29,6 +29,7 @@
             android:layout_marginStart="8dp"/>
 
         <ImageView
+            android:id="@+id/settingsIcon"
             android:layout_width="47dp"
             android:layout_height="62dp"
             android:src="@mipmap/settings" />

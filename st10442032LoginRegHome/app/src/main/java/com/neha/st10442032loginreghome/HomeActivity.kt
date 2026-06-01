@@ -1,7 +1,6 @@
 package com.neha.st10442032loginreghome
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -15,7 +14,6 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Link to the home screen layout
         setContentView(R.layout.activity_home)
 
         // Get references to UI elements
@@ -38,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
             usernameText.text = email.uppercase()
         }
 
-        // Settings icon — opens the Settings screen
+        // Settings icon → opens Settings screen
         settingsIcon.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
@@ -48,9 +46,9 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(this, "Expenses coming soon!", Toast.LENGTH_SHORT).show()
         }
 
-        // Bottom nav buttons
+        // Bottom nav
         navHome.setOnClickListener {
-            // Already on home screen, do nothing
+            // Already on home, do nothing
         }
         navTransactions.setOnClickListener {
             Toast.makeText(this, "Transactions coming soon!", Toast.LENGTH_SHORT).show()
@@ -58,8 +56,9 @@ class HomeActivity : AppCompatActivity() {
         navAccount.setOnClickListener {
             Toast.makeText(this, "Account coming soon!", Toast.LENGTH_SHORT).show()
         }
+        // Notifications bell → opens Aiden's notifications page
         navNotifications.setOnClickListener {
-            Toast.makeText(this, "Notifications coming soon!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, NotificationsActivity::class.java))
         }
     }
 }

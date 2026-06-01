@@ -17,3 +17,42 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_myplaces" />
+
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:text="Change Profile Picture"
+            android:backgroundTint="#2EAD5B"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/edtFullName"
+            android:hint="Full Name"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtNationality"
+            android:hint="Nationality"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />

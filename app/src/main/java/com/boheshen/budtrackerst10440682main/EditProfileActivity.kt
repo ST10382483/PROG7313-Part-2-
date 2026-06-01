@@ -106,3 +106,40 @@ class EditProfileActivity : AppCompatActivity() {
             edtEmail.requestFocus()
             return
         }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            edtEmail.error = "Invalid email address"
+            edtEmail.requestFocus()
+            return
+        }
+
+        if (cell.isEmpty()) {
+            edtCellNumber.error = "Enter cell number"
+            edtCellNumber.requestFocus()
+            return
+        }
+
+        if (cell.length < 10) {
+            edtCellNumber.error = "Cell number must be at least 10 digits"
+            edtCellNumber.requestFocus()
+            return
+        }
+
+        val prefs = getSharedPreferences("ProfileData", MODE_PRIVATE)
+
+        prefs.edit()
+            .putString("fullName", fullName)
+            .putString("nationality", nationality)
+            .putString("email", email)
+            .putString("cellNumber", cell)
+            .putString(
+                "profileImageUri",
+                selectedImageUri?.toString()
+                    ?: prefs.getString("profileImageUri", null)
+            )
+            .apply()
+
+        Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+}

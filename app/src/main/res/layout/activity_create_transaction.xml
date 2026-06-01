@@ -43,3 +43,59 @@
                 android:textColor="#666666"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:layout_marginTop="12dp">
+
+                <Button
+                    android:id="@+id/btnCar"
+                    android:text="🚗"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnFood"
+                    android:text="🍽"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnShopping"
+                    android:text="🛒"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnBag"
+                    android:text="🛍"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnMoney"
+                    android:text="💵"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnHome"
+                    android:text="🏠"
+                    android:textSize="28sp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_columnWeight="1" />
+
+            </GridLayout>

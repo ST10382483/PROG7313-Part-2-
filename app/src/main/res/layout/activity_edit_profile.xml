@@ -56,3 +56,37 @@
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtCellNumber"
+            android:hint="Cell Number"
+            android:inputType="phone"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:text="Save Changes"
+            android:backgroundTint="#2EAD5B"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

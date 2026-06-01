@@ -30,3 +30,35 @@ class CreateTransactionActivity : AppCompatActivity() {
             saveTransaction()
         }
     }
+
+    private fun setupIconButtons() {
+        findViewById<Button>(R.id.btnCar).setOnClickListener {
+            selectedIcon = "🚗"
+            Toast.makeText(this, "Transport selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnFood).setOnClickListener {
+            selectedIcon = "🍽"
+            Toast.makeText(this, "Food selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnShopping).setOnClickListener {
+            selectedIcon = "🛒"
+            Toast.makeText(this, "Shopping selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnBag).setOnClickListener {
+            selectedIcon = "🛍"
+            Toast.makeText(this, "Bag selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnMoney).setOnClickListener {
+            selectedIcon = "💵"
+            Toast.makeText(this, "Money selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnHome).setOnClickListener {
+            selectedIcon = "🏠"
+            Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
+        }
+    }

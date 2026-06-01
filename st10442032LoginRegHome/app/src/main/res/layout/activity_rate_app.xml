@@ -7,12 +7,15 @@
     android:background="#0D1B2A"
     android:padding="32dp">
 
+    <!-- Logo -->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@mipmap/logo"
-        android:layout_marginBottom="24dp"/>
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="32dp"/>
 
+    <!-- Thank you message -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,6 +26,7 @@
         android:gravity="center"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Rate prompt -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,14 +34,15 @@
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:gravity="center"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="32dp"/>
 
-    <!-- Star rating display -->
+    <!-- Star rating -->
     <TextView
+        android:id="@+id/starRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="⭐⭐⭐⭐⭐"
         android:textSize="40sp"
-        android:layout_marginBottom="32dp"/>
+        android:gravity="center"/>
 
 </LinearLayout>

@@ -17,6 +17,7 @@
         <activity android:name=".AddExpenseActivity" />
         <activity android:name=".ViewExpensesActivity" />
         <activity android:name=".CreateTransactionActivity" />
+        <activity android:name=".ProfileActivity" />
 
         <activity
             android:name=".MainActivity"

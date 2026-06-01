@@ -71,3 +71,44 @@
                 android:layout_marginTop="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="Profile:"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- PROFILE IMAGE -->
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:background="@android:color/white"
+            android:padding="18dp"
+            android:scaleType="centerInside"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <!-- DETAILS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:text="Full Name                                  Boheshen Naidoo"
+                android:background="#D9D9D9"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />

@@ -62,3 +62,56 @@ class CreateTransactionActivity : AppCompatActivity() {
             Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun saveTransaction() {
+        val title = edtTitle.text.toString().trim()
+        val amountText = edtAmount.text.toString().trim()
+
+        if (selectedIcon.isEmpty()) {
+            Toast.makeText(this, "Please choose an icon", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (title.isEmpty()) {
+            edtTitle.error = "Enter transaction title"
+            edtTitle.requestFocus()
+            return
+        }
+
+        if (amountText.isEmpty()) {
+            edtAmount.error = "Enter amount"
+            edtAmount.requestFocus()
+            return
+        }
+
+        val amount = amountText.toDoubleOrNull()
+
+        if (amount == null || amount <= 0) {
+            edtAmount.error = "Enter a valid amount"
+            edtAmount.requestFocus()
+            return
+        }
+
+        val prefs = getSharedPreferences("TransactionData", MODE_PRIVATE)
+        val json = prefs.getString("transactions", "[]")
+        val array = JSONArray(json)
+
+        val transaction = JSONObject()
+        transaction.put("icon", selectedIcon)
+        transaction.put("title", title)
+        transaction.put("amount", amount)
+        transaction.put(
+            "date",
+            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        )
+
+        array.put(transaction)
+
+        prefs.edit()
+            .putString("transactions", array.toString())
+            .apply()
+
+        Toast.makeText(this, "Transaction added successfully", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+}

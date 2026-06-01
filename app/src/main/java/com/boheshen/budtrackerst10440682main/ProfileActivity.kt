@@ -37,3 +37,23 @@ class ProfileActivity : AppCompatActivity() {
         super.onResume()
         loadProfileDetails()
     }
+
+    private fun loadProfileDetails() {
+        val prefs = getSharedPreferences("ProfileData", MODE_PRIVATE)
+
+        val fullName = prefs.getString("fullName", "Boheshen Naidoo")
+        val nationality = prefs.getString("nationality", "South African")
+        val email = prefs.getString("email", "Boheshen@gmail.com")
+        val cellNumber = prefs.getString("cellNumber", "012345678")
+        val imageUri = prefs.getString("profileImageUri", null)
+
+        txtFullName.text = "Full Name                                  $fullName"
+        txtNationality.text = "Nationality                                $nationality"
+        txtEmail.text = "Email Address                          $email"
+        txtCellNumber.text = "Cell Number                            $cellNumber"
+
+        if (!imageUri.isNullOrEmpty() && imageUri != "null") {
+            imgProfile.setImageURI(Uri.parse(imageUri))
+        }
+    }
+}

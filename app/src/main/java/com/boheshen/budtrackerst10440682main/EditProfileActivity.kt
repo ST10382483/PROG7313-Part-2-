@@ -61,3 +61,48 @@ class EditProfileActivity : AppCompatActivity() {
 
         startActivityForResult(intent, imagePickerCode)
     }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == imagePickerCode && resultCode == RESULT_OK) {
+            selectedImageUri = data?.data
+
+            selectedImageUri?.let {
+                contentResolver.takePersistableUriPermission(
+                    it,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+
+                imgProfile.setImageURI(it)
+            }
+        }
+    }
+
+    private fun saveProfile() {
+        val fullName = edtFullName.text.toString().trim()
+        val nationality = edtNationality.text.toString().trim()
+        val email = edtEmail.text.toString().trim()
+        val cell = edtCellNumber.text.toString().trim()
+
+        if (fullName.isEmpty()) {
+            edtFullName.error = "Enter full name"
+            edtFullName.requestFocus()
+            return
+        }
+
+        if (nationality.isEmpty()) {
+            edtNationality.error = "Enter nationality"
+            edtNationality.requestFocus()
+            return
+        }
+
+        if (email.isEmpty()) {
+            edtEmail.error = "Enter email address"
+            edtEmail.requestFocus()
+            return
+        }
